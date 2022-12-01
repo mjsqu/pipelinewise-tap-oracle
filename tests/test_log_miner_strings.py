@@ -22,6 +22,7 @@ def singer_write_message(message):
 def do_not_dump_catalog(catalog):
     pass
 
+@unittest.skip("ORA-44609: CONTINOUS_MINE is desupported since Oracle 12c")
 class MineStrings(unittest.TestCase):
     maxDiff = None
     def setUp(self):

@@ -32,6 +32,7 @@ def do_not_dump_catalog(catalog):
 
 
 CAUGHT_MESSAGES = []
+@unittest.skip("ORA-44609: CONTINOUS_MINE is desupported since Oracle 12c")
 class FullTable(unittest.TestCase):
     maxDiff = None
     def setUp(self):

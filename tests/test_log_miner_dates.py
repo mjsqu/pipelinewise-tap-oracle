@@ -24,6 +24,7 @@ def do_not_dump_catalog(catalog):
 def singer_write_message(message):
     CAUGHT_MESSAGES.append(message)
 
+@unittest.skip("ORA-44609: CONTINOUS_MINE is desupported since Oracle 12c")
 class MineDates(unittest.TestCase):
     maxDiff = None
     def setUp(self):
