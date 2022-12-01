@@ -109,8 +109,7 @@ class TestIntegerTablePK(unittest.TestCase):
 
             stream_dict.get('metadata').sort(key=lambda md: md['breadcrumb'])
 
-            self.assertEqual({'schema': {'properties': {'size_number_10_-1':    {'multipleOf': 10,
-                                                                                 'type': ['null', 'integer']},
+            self.assertEqual({'schema': {'properties': {'size_number_10_-1':    {'type': ['null', 'integer']},
                                                         'size_number_*_0':      {'type': ['null', 'integer']},
                                                         'size_number_integer':  {'type': ['null', 'integer']},
                                                         'size_number_4':      {'type': ['null', 'integer']},
@@ -206,10 +205,10 @@ class TestDatesTablePK(unittest.TestCase):
 
             stream_dict.get('metadata').sort(key=lambda md: md['breadcrumb'])
 
-            self.assertEqual({'schema': {'properties': {'our_date':               {'type': ['string'], 'format' : 'date-time'},
-                                                        'our_ts':                 {'type': ['null', 'string'], 'format' : 'date-time'},
-                                                        'our_ts_tz':              {'type': ['null', 'string'], 'format' : 'date-time'},
-                                                        'our_ts_tz_local':        {'type': ['null', 'string'], 'format' : 'date-time'}},
+            self.assertEqual({'schema': {'properties': {'our_date':               {'type': ['string'], 'description': 'date', 'format' : 'date-time'},
+                                                        'our_ts':                 {'type': ['null', 'string'], 'description': 'timestamp', 'format' : 'date-time'},
+                                                        'our_ts_tz':              {'type': ['null', 'string'], 'description': 'timestamp', 'format' : 'date-time'},
+                                                        'our_ts_tz_local':        {'type': ['null', 'string'], 'description': 'timestamp', 'format' : 'date-time'}},
                                          'type': 'object'},
                               'stream': 'CHICKEN',
                               'table_name': 'CHICKEN',
@@ -219,7 +218,7 @@ class TestDatesTablePK(unittest.TestCase):
                                 'metadata': {'table-key-properties': ['our_date'],
                                              'database-name': os.getenv('TAP_ORACLE_SID'),
                                              'schema-name': 'ROOT',
-                                             'is-view': 0,
+                                             'is-view': False,
                                              'row-count': 0}},
                                {'breadcrumb': ('properties', 'our_date'),        'metadata': {'inclusion': 'automatic', 'sql-datatype': 'DATE', 'selected-by-default': True}},
                                {'breadcrumb': ('properties', 'our_ts'),          'metadata': {'inclusion': 'available', 'sql-datatype': 'TIMESTAMP(6)', 'selected-by-default': True}},
