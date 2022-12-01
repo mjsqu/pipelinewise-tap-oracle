@@ -375,7 +375,7 @@ def discover_columns(connection, table_info, filter_schemas, filter_tables, use_
 def dump_catalog(catalog):
    catalog.dump()
 
-def do_discovery(conn_config, filter_schemas, filter_tables, use_singer_decimal):
+def do_discovery(conn_config, filter_schemas, filter_tables = [], use_singer_decimal = False):
    LOGGER.info("starting discovery")
 
    connection = orc_db.open_connection(conn_config)
