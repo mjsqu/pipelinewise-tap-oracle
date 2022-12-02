@@ -186,7 +186,7 @@ def schema_for_column(c, pks_for_table, use_singer_decimal):
 
 def filter_sys_or_not(filter_schemas):
     filter = "owner != 'SYS'"
-    if (filter_schemas[0] == 'SYS'): filter = "1=1"
+    if ('SYS' in filter_schemas): filter = "1=1"
     return filter
 
     
@@ -375,7 +375,7 @@ def discover_columns(connection, table_info, filter_schemas, filter_tables, use_
 def dump_catalog(catalog):
    catalog.dump()
 
-def do_discovery(conn_config, filter_schemas, filter_tables, use_singer_decimal):
+def do_discovery(conn_config, filter_schemas, filter_tables = [], use_singer_decimal = False):
    LOGGER.info("starting discovery")
 
    connection = orc_db.open_connection(conn_config)
