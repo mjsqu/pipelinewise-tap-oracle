@@ -1,5 +1,7 @@
 # pipelinewise-tap-oracle
 
+> :warning: **This is a development fork of s7clarke10's fork** - it may contain breaking changes on `master`, recommend using [s7clarke10](https://github.com/s7clarke10/pipelinewise-tap-oracle) repo
+
 [![PyPI version](https://badge.fury.io/py/pipelinewise-tap-oracle.svg)](https://badge.fury.io/py/pipelinewise-tap-oracle)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pipelinewise-tap-oracle.svg)](https://pypi.org/project/pipelinewise-tap-oracle/)
 [![License: MIT](https://img.shields.io/badge/License-GPLv3-yellow.svg)](https://opensource.org/licenses/GPL-3.0)
