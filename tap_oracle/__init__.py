@@ -107,7 +107,7 @@ def schema_for_column(c, pks_for_table, use_singer_decimal):
             result.additionalProperties = {"scale_precision": f"({c.numeric_precision or DEFAULT_NUMERIC_PRECISION},{c.numeric_scale})"}
       else:
          result.type = nullable_column(c.column_name, 'number', pks_for_table)
-         result.multipleOf = 10 ** (0 - numeric_scale)
+         #result.multipleOf = 10 ** (0 - numeric_scale)
 
       return result
 
