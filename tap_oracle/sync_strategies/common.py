@@ -51,6 +51,12 @@ def row_to_singer_message(stream, row, version, columns, time_extracted):
         elif 'integer' in property_type or property_type == 'integer':
             integer_representation = int(elem)
             row_to_persist += (integer_representation,)
+        elif 'number' in property_type or property_type == 'number':
+            str_representation = str(elem)
+            if '.' in str_representation:
+                row_to_persist += (float(elem),)
+            else:
+                row_to_persist += (int(elem),)
         elif description == 'blob':
             base64encode = base64.b64encode(elem)
             row_to_persist += (base64encode,)
