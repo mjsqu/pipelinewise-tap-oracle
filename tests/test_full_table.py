@@ -199,31 +199,31 @@ class FullTable(unittest.TestCase):
 
             expected_rec_1 = {'ID'                  : 1,
                               'none_column'         : None,
-                              'size_number'         : decimal.Decimal('0.000001'),
-                              'size_number_*'       : decimal.Decimal('100.12345'),
+                              'size_number'         : 1E-6,
+                              'size_number_*'       : 100.12345,
                               'size_number_4'       : 100,
                               'size_number_4_0'     : 100,
                               'size_number_*_0'     : 2 ** 128,
-                              'size_number_*_38'    : decimal.Decimal('0.000001'),
+                              'size_number_*_38'    : 1e-06,
                               'size_number_10_-1'   : 310,
                               'size_number_integer' : 400,
                               'size_number_int'     : 500,
                               'size_number_smallint': 50000,
 
-                              'our_number_10_2'     : decimal.Decimal('100.11'),
-                              'our_number_38_4'     : decimal.Decimal('99999999999999999.9999'),
+                              'our_number_10_2'     : 100.11,
+                              'our_number_38_4'     : 99999999999999999.9999,
 
-                              'our_double_precision': decimal.Decimal('1234567.8901234567890123456789012345679'),
-                              'our_float'           : decimal.Decimal('1234567.8901234567890123456789012345679'),
-                              'our_real'            : decimal.Decimal('1234567.890123456789'),
+                              'our_double_precision': 1234567.890123456789012345679,
+                              'our_float'           : 1234567.8901234567,
+                              'our_real'            : 1234567.890123456789,
 
 
 
-                              'our_binary_float'    : decimal.Decimal('1234567.88'),
-                              'our_binary_double'   : decimal.Decimal('1234567.8901229999'), # 1234567.875
+                              'our_binary_double'   : 1234567.8901229999, # 1234567.875
+                              'our_binary_float'    : 1234567.88,
                               'our_nan'             : None,
-                              'our_+_infinity'      : decimal.Decimal('1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'),
-                              'our_-_infinity'      : decimal.Decimal('-1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'),
+                              'our_+_infinity'      : 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+                              'our_-_infinity'      : -1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
 
                               'our_date'            : '1996-06-06T00:00:00.00+00:00',
                               'our_ts'              : '1997-02-02T02:02:02.722184+00:00',
@@ -249,9 +249,9 @@ class FullTable(unittest.TestCase):
             expected_rec_2 = expected_rec_1
             expected_rec_2.update({
                 'ID': decimal.Decimal(2),
-                'size_number_4_0' : decimal.Decimal('101'),
-                'our_number_10_2' : decimal.Decimal('101.11') + 1,
-                'our_double_precision' : our_double_precision + 1,
+                'size_number_4_0' : 101,
+                'our_number_10_2' : 101.11 + 1,
+                'our_double_precision' : 1234568.8901234567,#decimal.Decimal(our_double_precision) + 1,
                 'our_date' : '1996-06-07T00:00:00.00+00:00',
                 'NAME_NCHAR' :  'name-nchar II                                                                                                              '})
             #self.assertTrue(math.isnan(CAUGHT_MESSAGES[4].record.get('our_nan')))
